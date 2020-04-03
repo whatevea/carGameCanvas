@@ -14,6 +14,7 @@ carPng.src="imgs/car.png";
 var ball1=new Ball(250,screen,ballStartHeight,20,randomColor());
 var score=0;
 var carSpeed=1;
+var crashSound=document.getElementById('crashSound');
 
 //Render everything
 function render(){
@@ -56,7 +57,7 @@ var ballLeftHitbox=ball1.xPos-ball1.radius;
 var ballRightHitbox=ball1.radius+ball1.xPos;
 var ballDownHitbox=ball1.radius+ball1.xPos;
 if ((ball1.radius+ball1.yPos)>360 && ballRightHitbox>hitboxLeft && ballLeftHitbox<hitboxRight)
-	{document.getElementById('crashSound').play();alert("collided");ballDrops(true);
+	{crashSound.play();ballDrops(true);
 location.reload()
 };
 }
