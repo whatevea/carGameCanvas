@@ -58,6 +58,7 @@ var ballRightHitbox=ball1.radius+ball1.xPos;
 var ballDownHitbox=ball1.radius+ball1.xPos;
 if ((ball1.radius+ball1.yPos)>360 && ballRightHitbox>hitboxLeft && ballLeftHitbox<hitboxRight)
 	{crashSound.play();ballDrops(true);
+	 alert("OH NO ");
 location.reload()
 };
 }
