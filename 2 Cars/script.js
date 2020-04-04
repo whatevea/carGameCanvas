@@ -12,7 +12,7 @@ const blueCircle=document.getElementById('blueCircle');
 const redBox=document.getElementById('redBox');
 const blueBox=document.getElementById('blueBox');
 const carSpeed=5;
-var fallSpeed=4;
+var fallSpeed=3;
 const leftFallingObjs=[{x:random(15,80),
 visibility:true,
 y:-30,
