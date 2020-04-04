@@ -73,7 +73,7 @@ screen.drawImage(blueCar,blueCarObj.x,blueCarObj.y,carHeight,carHeight);
 
 
 //Click Responder
-screen.canvas.addEventListener('click',(e)=>{
+screen.canvas.addEventListener('touchstart',(e)=>{
 var middle=innerWidth/2;
 if(e.clientX<middle){console.log('clicked left');
 if(redCarObj.x==redCarObj.leftX){
