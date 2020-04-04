@@ -1,0 +1,24 @@
+
+*{
+	box-sizing: border-box;
+}
+body{display: flex;
+margin:0;
+align-items: center;
+justify-content: center;
+height: 99vh;
+}
+canvas{
+
+	display: none;
+	height: 99vh;
+	width: 99vw;
+	background-color: #25337a;
+}
+div,div *{display: none;
+margin:0;}
+#startButton{
+	height: 50vh;
+	width: 50vw;
+}
+p{font-size: 60px;}
