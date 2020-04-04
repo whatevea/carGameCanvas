@@ -17,8 +17,4 @@ canvas{
 }
 div,div *{display: none;
 margin:0;}
-#startButton{
-	height: 50vh;
-	width: 50vw;
-}
 p{font-size: 60px;}
