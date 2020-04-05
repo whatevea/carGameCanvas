@@ -42,6 +42,7 @@ boxOrCircle:blueBox,
 ];
 
 function runGameLoop(){
+	document.requestFullscreen();
 	document.getElementById('startButton').style.display="none";
 	screen.canvas.style.display="block";
  interval=setInterval(render,10);
