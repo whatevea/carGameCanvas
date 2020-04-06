@@ -76,8 +76,23 @@ screen.drawImage(blueCar,blueCarObj.x,blueCarObj.y,carHeight,carHeight);
 //Click Responder
 screen.canvas.addEventListener('touchstart',(e)=>{
 var middle=innerWidth/2;
-if(e.touches[0].clientX<middle){console.log('clicked left');
-if(redCarObj.x==redCarObj.leftX){
+//redcar
+if(e.touches.length==1 && e.touches[0].clientX<middle){
+MoveLeftCar();;
+
+}
+//blue car
+if(e.touches.length==1 && e.touches[0].clientX>middle){
+moveRightCar();
+}
+if(e.touches.length==2){
+	moveRightCar();
+	MoveLeftCar();
+}
+})
+
+function MoveLeftCar(){
+	if(redCarObj.x==redCarObj.leftX){
 	redCarObj.goingRight=true;
 }
 if(redCarObj.x==redCarObj.rightX){
@@ -85,20 +100,15 @@ if(redCarObj.x==redCarObj.rightX){
 	redCarObj.goingLeft=true;
 	
 }
-
 }
-
-//blue car
-if(e.touches[0].clientX>middle){
-if(blueCarObj.x==blueCarObj.leftX){
+function moveRightCar(){
+	if(blueCarObj.x==blueCarObj.leftX){
 	blueCarObj.goingRight=true;
 }
 if(blueCarObj.x==blueCarObj.rightX){
 	blueCarObj.goingLeft=true;
 }
 }
-})
-
 
 function moveCar(theCarObj){
 	if (theCarObj.goingRight && theCarObj.x<theCarObj.rightX){
