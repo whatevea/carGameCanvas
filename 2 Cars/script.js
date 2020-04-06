@@ -64,8 +64,8 @@ screen.fillText(score, 200, 20);
 
 function drawCar(){
 
-screen.drawImage(redCar,redCarObj.x,redCarObj.y,carHeight-20,carHeight-5);
-screen.drawImage(blueCar,blueCarObj.x,blueCarObj.y,carHeight-20,carHeight-5);
+screen.drawImage(redCar,redCarObj.x+10,redCarObj.y,carHeight-20,carHeight-5);
+screen.drawImage(blueCar,blueCarObj.x+10,blueCarObj.y,carHeight-20,carHeight-5);
 }
 
 
