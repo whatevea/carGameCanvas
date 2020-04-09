@@ -59,6 +59,10 @@ drawLines(screen);
 drawCar();	
 moveCar(redCarObj);
 moveCar(blueCarObj)
+ screen.font = "30px Comic Sans MS";
+screen.fillStyle = "white";
+screen.textAlign = "center";
+screen.fillText(score, 200,28); v
 interval=requestAnimationFrame(render);
 }
 
@@ -168,10 +172,7 @@ function collided(item){
 function updateScore(){
 	if(score==50 || score==100){fallSpeed++;}
 	scoreSound.play();
-	screen.font = "30px Comic Sans MS";
-screen.fillStyle = "white";
-screen.textAlign = "center";
-screen.fillText(score, 200,28); 
+	
 }
 
 //if the circles are missed
