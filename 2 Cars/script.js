@@ -166,7 +166,7 @@ function collided(item){
 	 if(item.boxOrCircle==redCircle && item.visibility){score+=1; updateScore();item.visibility=false;}		 //updating score ,hideobj
 	}
 function updateScore(){
-	if(score==50 || score==100){carSpeed++;}
+	if(score==50 || score==100){carSpeed++;fallSpeed++;}
 	scoreSound.play();
 	screen.font = "30px Comic Sans MS";
 screen.fillStyle = "white";
