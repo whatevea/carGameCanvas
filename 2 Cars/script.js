@@ -45,7 +45,7 @@ function runGameLoop(){
 	screen.canvas.requestFullscreen();
 	document.getElementById('startButton').style.display="none";
 	screen.canvas.style.display="block";
- interval=setInterval(render,10);
+ requestAnimationFrame(render);
 }
 
 
@@ -59,7 +59,8 @@ drawLines(screen);
 drawCar();	
 moveCar(redCarObj);
 moveCar(blueCarObj);
-screen.fillText(score, 200, 20); 
+screen.fillText(score, 200, 25); 
+requestAnimationFrame(render);
 }
 
 function drawCar(){
@@ -160,8 +161,8 @@ if(item.y>500){
 //scores
 function collided(item){
 
-	if(item.boxOrCircle==redBox){clearInterval(interval); gameOver("You collided")} // gamee reset
-	if(item.boxOrCircle==blueBox){clearInterval(interval); gameOver("You collided")}
+	if(item.boxOrCircle==redBox){window.cancelAnimationFrame(); gameOver("You collided")} // gamee reset
+	if(item.boxOrCircle==blueBox){window.cancelAnimationFrame(); gameOver("You collided")}
 	if(item.boxOrCircle==blueCircle && item.visibility){score+=1; updateScore();item.visibility=false;}
 	 if(item.boxOrCircle==redCircle && item.visibility){score+=1; updateScore();item.visibility=false;}		 //updating score ,hideobj
 	}
@@ -175,7 +176,7 @@ screen.fillText(score, 200,28);
 
 //if the circles are missed
 function missedCircle(){
-	clearInterval(interval);
+	window.cancelAnimationFrame();
 	setTimeout(()=>{gameOver("You missed the circle")},1000)
 }
 function gameOver(text){
