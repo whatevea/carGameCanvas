@@ -62,7 +62,7 @@ moveCar(blueCarObj)
  screen.font = "30px Comic Sans MS";
 screen.fillStyle = "white";
 screen.textAlign = "center";
-screen.fillText(score, 200,28); v
+screen.fillText(score, 200,28); 
 interval=requestAnimationFrame(render);
 }
 
