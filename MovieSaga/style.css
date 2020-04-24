@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+@font-face {
+  font-family: 'MyWebFont';
+  src:url('netflixfont.woff2') format('woff2');
+}
+
+body{
+	margin:0;
+	padding: 0;
+	color:#e5e5e5;
+	background-color: #141414;
+ font-family: 'MyWebFont', Fallback, sans-serif;
+}
+
+.logo img{
+	height: 100%;
+}
+.logo{
+	height: 10vh;
+	text-align: center;
+	border-radius: 10px;
+	border-bottom: 4px solid #b4131d;
+}
+.search-container{
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+}
+.search{
+	display: flex;
+background-color: #b4131d;
+padding: 10px;
+
+border-radius: 10px;
+}
+.search input{
+line-height: 10vh;
+background:none;
+outline: none;
+border:none;
+color: black;
+font-family: 'PT Sans', sans-serif;
+font-size:4vh;
+width: 0;
+transition: all 1s;
+}
+.search:hover input{
+	width: 70%;
+}
+.search button{
+	height: 100%;
+	width: 30%;
+	color:#141414;
+	background:none;
+	border:none;
+	outline:none;
+	cursor: pointer;
+}
+.search:hover button{
+	color:black;
+}
+.search input:focus +button{
+	color:black;
+}
+.search input:focus{
+	width: 70%
+}
+h3{
+	text-align: center;
+}
+.swiper-container{
+	width: 100%;
+}
+ .swiper-slide {
+ 	width: calc(100vw-10)/3);
+      text-align: center;
+      font-size: 1px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  	}
+ .swiper-slide img{
+ 	height: 100%;
+ 	width: 100%;
+ }
+ .first,.second,.third{
+ 	margin-bottom: 45px;
+ }
