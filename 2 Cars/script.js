@@ -12,7 +12,8 @@ const blueCircle=document.getElementById('blueCircle');
 const redBox=document.getElementById('redBox');
 const blueBox=document.getElementById('blueBox');
 const carSpeed=5;
-var fallSpeed=3;
+var fallSpeed=4;
+var isCollided=false;
 const leftFallingObjs=[{x:random(15,80),
 visibility:true,
 y:-30,
@@ -43,6 +44,7 @@ boxOrCircle:blueBox,
 
 function runGameLoop(){
 	screen.canvas.requestFullscreen();
+	document.getElementById('game-info').style.display="none";
 	document.getElementById('startButton').style.display="none";
 	screen.canvas.style.display="block";
  interval=requestAnimationFrame(render);
@@ -52,6 +54,7 @@ function runGameLoop(){
 //render function
 
 function render(){
+	if (!isCollided){
 screen.clearRect(0,0,252,500);
 leftObjFall();
 rightObjFall();
@@ -65,6 +68,10 @@ screen.textAlign = "center";
 screen.fillText(score, 200,28); 
 interval=requestAnimationFrame(render);
 }
+else{
+
+}
+}
 
 function drawCar(){
 
@@ -76,7 +83,18 @@ screen.drawImage(blueCar,blueCarObj.x+10,blueCarObj.y,carHeight-20,carHeight-5);
 
 
 
+//LEft Right key event
 
+document.addEventListener('keydown',(e)=>{
+	console.log(e);
+	if (e.keyCode==37){
+		MoveLeftCar();
+
+	}
+	else if(e.keyCode==39){
+		moveRightCar();
+	}
+})
 //Click Responder
 screen.canvas.addEventListener('touchstart',(e)=>{
 var middle=innerWidth/2;
@@ -164,13 +182,13 @@ if(item.y>500){
 //scores
 function collided(item){
 
-	if(item.boxOrCircle==redBox){window.cancelAnimationFrame(interval); gameOver("You collided")} // gamee reset
-	if(item.boxOrCircle==blueBox){window.cancelAnimationFrame(interval); gameOver("You collided")}
+	if(item.boxOrCircle==redBox){gameOver("You collided")} // gamee reset
+	if(item.boxOrCircle==blueBox){gameOver("You collided")}
 	if(item.boxOrCircle==blueCircle && item.visibility){score+=1; updateScore();item.visibility=false;}
 	 if(item.boxOrCircle==redCircle && item.visibility){score+=1; updateScore();item.visibility=false;}		 //updating score ,hideobj
 	}
 function updateScore(){
-	if(score==50 || score==100){fallSpeed++;}
+	if(score==25 || score==100 || score==125 ||score==150){fallSpeed++;}
 	scoreSound.play();
 	
 }
@@ -178,9 +196,11 @@ function updateScore(){
 //if the circles are missed
 function missedCircle(){
 	window.cancelAnimationFrame(interval);
-	setTimeout(()=>{gameOver("You missed the circle")},1000)
+gameOver("You missed the circle");
 }
+
 function gameOver(text){
+	isCollided=true;
 	crashSound.play();
 alert(`${text} Your final score was ${score}`);
 location.reload(); 
